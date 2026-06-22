@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Animated Hello World</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 18% 24%, #ff6f61 0 11%, transparent 28%),
+        radial-gradient(circle at 82% 28%, #27c3ff 0 10%, transparent 25%),
+        linear-gradient(135deg, #16181f, #26303f 45%, #111318);
+    }
+
+    .nav {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      z-index: 10;
+      display: flex;
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      background: rgba(10, 12, 18, 0.58);
+      backdrop-filter: blur(14px);
+      transform: translateX(-50%);
+      animation: navDrop 0.8s ease-out both;
+    }
+
+    .nav a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-2px);
+    }
+
+    .content {
+      width: min(88vw, 760px);
+      padding: 96px 0 40px;
+      text-align: center;
+      animation: rise 1s ease-out both;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(3rem, 10vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: 0;
+      text-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      animation: glow 2.6s ease-in-out infinite;
+    }
+
+    p {
+      margin: 0 auto;
+      max-width: 620px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+      line-height: 1.7;
+    }
+
+    .pulse {
+      position: absolute;
+      width: 300px;
+      aspect-ratio: 1;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: 50%;
+      animation: pulse 3.5s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(32px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      0%,
+      100% {
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.25));
+      }
+
+      50% {
+        filter: drop-shadow(0 0 24px rgba(39, 195, 255, 0.75));
+      }
+    }
+
+    @keyframes pulse {
+      0%,
+      100% {
+        transform: scale(0.9);
+        opacity: 0.35;
+      }
+
+      50% {
+        transform: scale(1.15);
+        opacity: 0.75;
+      }
+    }
+
+    @keyframes navDrop {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="hello-world.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main class="content">
+    <div class="pulse" aria-hidden="true"></div>
+    <h1>About Us</h1>
+    <p>This simple animated site celebrates a classic first step in web design: a bright hello, a little motion, and a few connected pages to explore.</p>
+  </main>
+</body>
+</html>
