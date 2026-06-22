@@ -23,6 +23,38 @@
         linear-gradient(135deg, #16181f, #232a3b 45%, #111318);
     }
 
+    .nav {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      z-index: 10;
+      display: flex;
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      background: rgba(10, 12, 18, 0.58);
+      backdrop-filter: blur(14px);
+      transform: translateX(-50%);
+      animation: navDrop 0.8s ease-out both;
+    }
+
+    .nav a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-2px);
+    }
+
     .scene {
       position: relative;
       width: min(90vw, 760px);
@@ -152,9 +184,28 @@
         transform: scale(1.2) translateY(-10px);
       }
     }
+
+    @keyframes navDrop {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+    }
   </style>
 </head>
 <body>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="hello-world.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="blank.html">LOL</a>
+  </nav>
+
   <main class="scene" aria-label="Animated hello world">
     <div class="ring" aria-hidden="true"></div>
     <span class="spark" aria-hidden="true"></span>
